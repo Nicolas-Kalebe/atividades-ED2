@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+//Nome do Aluno: Nícolas Kalebe Gualberto Fidelis
+//Matricula: 202302573
+
 void printArray(std::vector<int>& vetor) {
     for (int num : vetor) {
         std::cout << num << " ";

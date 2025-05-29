@@ -1,7 +1,8 @@
 //Nome: Nicolas Kalebe - Matricula: 202302573
 //Nome: Abner Gabriel - Matricula: 202302517
-
+//codigo feito em C++20
 #include <iostream>
+#define COUNT 10
 
 typedef struct no {
     int valor;
@@ -116,6 +117,22 @@ void emOrdem(No* raiz) {
     }
 }
 
+void constroiAVL(No* raiz, int space) {
+    if (raiz == NULL)
+        return;
+
+    space += COUNT;
+
+    constroiAVL(raiz->direito, space);
+
+    printf("\n");
+    for (int i = COUNT; i < space; i++)
+        printf(" ");
+    printf("%d\n", raiz->valor);
+
+    constroiAVL(raiz->esquerdo, space);
+}
+
 int main() {
     No* raiz = nullptr;
 
@@ -129,6 +146,10 @@ int main() {
     std::cout << "Em ordem: ";
     emOrdem(raiz);
     std::cout << std::endl;
+    printf("\n");
+    
+    std::cout << "A visualização dos nós: ";
+    constroiAVL(raiz, 0);
 
     return 0;
 }
